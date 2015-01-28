@@ -1,0 +1,12 @@
+[package]
+
+name = "run-trender"
+version = "0.0.1"
+authors = ["Sam Carroll <scarroll@inficon.com>"]
+
+[dependencies]
+#uuid = "0.1.3"
+#hyper = "0.0.21"
+#url = "0.2.7"
+#encoding = "0.2.8"
+#rustic-io = "0.2.5"

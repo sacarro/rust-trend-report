@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+	    var source = new EventSource('/trend?rtStartTime=1&rtEndTime=10');
+
+	    source.addEventListener('waiting', function(evt){
+			console.log('Waiting for trend to be available', evt.data);
+	    }, false);
+	    source.addEventListener('started', function(evt){
+			console.log('Trend started!', evt.data);
+	    }, false);
+	    source.addEventListener('update', function(evt){
+			console.log('Trend update...', JSON.parse(evt.data));
+	    }, false);
+	    source.addEventListener('complete', function(evt){
+			this.close();
+			console.log('Trend completed!', evt.data);
+	    }, false);
+
+	    /*setTimeout(function(){
+		source.close();
+	    }, 5000);*/
+
+        });
+    </script>
+</head>
+<body>
+<h3>Compound Trends</h3>
+
+<div id="sessionId">
+
+</div>
+</body>
+</html>
